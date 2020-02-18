@@ -11,13 +11,13 @@ function fetchData() {
 		.then(text => {
 			document.getElementById("storeCounter").innerHTML = text
 		})
-        
+    /*    
     fetch('ronde.txt?t=' + now)
 		.then(response => response.text())
 		.then(text => {
 			document.getElementById("ronde").innerHTML = text
 		})
-    
+    */
     fetch('wedstrijdschema.txt?t=' + now)
 		.then(response => response.text())
 		.then(text => {
@@ -55,14 +55,14 @@ function counter() {
   }
   setTimeout(counter, 1000);
 };
-
+/*
 var url = "https://docs.google.com/presentation/d/e/2PACX-1vTERrMRnq1xmEfbCW2tiev6by-d-wU1weKYqPc2xw8MEUMKsC-nP3PXfWvTsX9OU2oesWLRNwVyGqAe/embed?start=true&loop=true&delayms=10000&rm=minimal";
 
 var url2 = "wedstrijdschema.html"
 
 function slider() {
 	if(index == 0){
-		document.getElementById("pagina").src = url;
+		document.getElementById("pagina").src = url2;
 		index++;
 	} else if(index == 1) {
 		document.getElementById("pagina").src = url2;
@@ -80,7 +80,7 @@ function displayTeams() {
 	document.getElementById("veld2_2").innerHTML = schema[ronde - 1][3];
 	setTimeout(displayTeams, 500)
 }
-
+*/
 function cleanData(element) {
 	var dataSRC = document.getElementById(element).innerHTML
 	var clean = dataSRC.split("\n")

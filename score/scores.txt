@@ -1,1 +1,8 @@
-Ronde:	Veld: Team1: Team2:
+[
+    {
+        "ronde": "1",
+        "veld": "2",
+        "team1": "4",
+        "team2": "5"
+    }
+]
