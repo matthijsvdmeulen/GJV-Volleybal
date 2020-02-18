@@ -2,8 +2,6 @@
 <html lang="nl-nl">
 <head>
     <title>Score Invullen</title>
-    
-    <link rel="stylesheet" type="text/css" href="score.css?v=1" />
     <meta charset="UTF-8" />
 </head>
 <body>
@@ -68,55 +66,81 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	
     if (empty($rondeError) && empty($veldError) && empty($team1Error) && empty($team2Error)) {
-		$output = $ronde . "\t" . $veld . "\t" . $team1 . "\t" . $team2 . "\n";
-		echo file_put_contents($file, $output, FILE_APPEND);
-		
-        echo "<p>test</p>";
-    } else {
-        ?>
-		<h1>Score invullen</h1>
-		<p>Vul de gegevens in zoals ze op het scherm staan, houdt ook de teamvolgorde van het scherm aan</p>
-		<form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>" method="post">
-			<p>Ronde: <span style="color: red;"><?php echo $rondeError;?></span></p>
-			<p><input type="number" min="1" max="13" inputmode="numeric" pattern="[1-13]"
-				title="Getal tussen 1 en 13" name="ronde"></p>
-			<p>Veld: <span style="color: red;"><?php echo $veldError;?></span></p>
-			<p><input type="number" min="1" max="2" inputmode="numeric" pattern="[1-2]"
-				title="Getal tussen 1 en 2" name="veld"></p>
-			<p>Score Team 1: <span style="color: red;"><?php echo $team1Error;?></span></p>
-			<p><input type="number" min="0" max="50" inputmode="numeric" pattern="[0-50]"
-				title="Getal tussen 0 en 50" name="team1"></p>
-			<p>Score Team 2: <span style="color: red;"><?php echo $team2Error;?></span></p>
-			<p><input type="number" min="0" max="50" inputmode="numeric" pattern="[0-50]"
-				title="Getal tussen 0 en 50" name="team2"></p>
-			<p><input name="submit" type="submit" value="Instellen"></input></p>
-		</form>
-		
-		<?php
-    };
-    
-    
-} else {
-    ?>
-<h1>Score invullen</h1>
-<p>Vul de gegevens in zoals ze op het scherm staan, houdt ook de teamvolgorde van het scherm aan</p>
-<form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>" method="post">
-    <p>Ronde:</p>
-    <p><input type="number" min="1" max="13" inputmode="numeric" pattern="[1-13]"
-        title="Getal tussen 1 en 13" name="ronde"></p>
-    <p>Veld:</p>
-    <p><input type="number" min="1" max="2" inputmode="numeric" pattern="[1-2]"
-        title="Getal tussen 1 en 2" name="veld"></p>
-	<p>Score Team 1:</p>
-    <p><input type="number" min="0" max="50" inputmode="numeric" pattern="[0-50]"
-        title="Getal tussen 0 en 50" name="team1"></p>
-	<p>Score Team 2:</p>
-    <p><input type="number" min="0" max="50" inputmode="numeric" pattern="[0-50]"
-        title="Getal tussen 0 en 50" name="team2"></p>
-    <p><input name="submit" type="submit" value="Instellen"></input></p>
-</form>
-<?php
-};
+        $arr = json_decode(file_get_contents($file), TRUE);
+        $arr[] = ['ronde' => $ronde, 'veld' => $veld, 'team1' => $team1, 'team2' => $team2];
+        $json = json_encode($arr, JSON_PRETTY_PRINT);
+		file_put_contents($file, $json);
+        $ronde = $veld = $team1 = $team2 = "";
+        echo "<p>Verstuurd!</p>";
+    }
+}
 ?>
+    <h1>Score invullen</h1>
+    <p>Vul de gegevens in zoals ze op het scherm staan, houdt ook de teamvolgorde van het scherm aan</p>
+    <form method="post">
+        <p>
+            Ronde: <span style="color: red;"><?php echo $rondeError;?></span>
+        </p>
+        <p>
+            <input
+                type="number"
+                min="1"
+                max="13"
+                inputmode="numeric"
+                pattern="[1-13]"
+                title="Getal tussen 1 en 13"
+                name="ronde" 
+                value="<?php echo $ronde;?>"
+            >
+        </p>
+        <p>
+            Veld: <span style="color: red;"><?php echo $veldError;?></span>
+        </p>
+        <p>
+            <input
+                type="number"
+                min="1"
+                max="2"
+                inputmode="numeric"
+                pattern="[1-2]"
+                title="Getal tussen 1 en 2"
+                name="veld"
+                value="<?php echo $veld;?>"
+            >
+        </p>
+        <p>
+            Score Team 1: <span style="color: red;"><?php echo $team1Error;?></span>
+        </p>
+        <p>
+            <input
+                type="number"
+                min="0"
+                max="50"
+                inputmode="numeric"
+                pattern="[0-50]"
+                title="Getal tussen 0 en 50"
+                name="team1"
+                value="<?php echo $team1;?>"
+            >
+        </p>
+        <p>
+            Score Team 2: <span style="color: red;"><?php echo $team2Error;?></span>
+        </p>
+        <p>
+            <input
+                type="number"
+                min="0"
+                max="50"
+                inputmode="numeric"
+                pattern="[0-50]"
+                title="Getal tussen 0 en 50"
+                name="team2"
+                value="<?php echo $team2;?>"
+            >
+        </p>
+        <p>
+            <input name="submit" type="submit" value="Instellen">
+        </p>
+    </form>
 </body>
 </html>
