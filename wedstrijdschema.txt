@@ -1,13 +1,8 @@
-Gym voor volwassenen @ JA sport	Green Glory!	GJV Prestatieteam	Koelkastbouillon
-Barnebarn	Bunker Team Atlantikwall	Team Zonder Naam (TZN)	EHBO op Veld 1
-Vrijdagavond Volleybal Club	Green Glory!	Istie Fristie?	Koelkastbouillon
-Istie Fristie?	Vrijdagavond Volleybal Club	GJV Prestatieteam	Gym voor volwassenen @ JA sport
-Kerkenraad	EHBO op Veld 1	Team Zonder Naam (TZN)	Barnebarn
-Istie Fristie?	Green Glory!	Kerkenraad	Bunker Team Atlantikwall
-Vrijdagavond Volleybal Club	GJV Prestatieteam	Koelkastbouillon	Gym voor volwassenen @ JA sport
-EHBO op Veld 1	Barnebarn	Istie Fristie?	Gym voor volwassenen @ JA sport
-Green Glory!	GJV Prestatieteam	Koelkastbouillon	Vrijdagavond Volleybal Club
-Kerkenraad	Barnebarn	Bunker Team Atlantikwall	Team Zonder Naam (TZN)
-Istie Fristie?	GJV Prestatieteam	Gym voor volwassenen @ JA sport	Vrijdagavond Volleybal Club
-Green Glory!	Koelkastbouillon	Kerkenraad	Team Zonder Naam (TZN)
-Bunker Team Atlantikwall	EHBO op Veld 1	NA	NA
+-Net Niet-	Barnebarn	Wijkkerkenraad	t
+Koelkastbouillon	Vrijdagavond team	Ruurd, is er nog wijn?	t
+-Net Niet-	Koelkastbouillon	Team van Vliet	Wijkkerkenraad
+Vrijdagavond team	Barnebarn	t	Team van Vliet
+Barnebarn	Koelkastbouillon	Ruurd, is er nog wijn?	Wijkkerkenraad
+-Net Niet-	Vrijdagavond team	Team van Vliet	Ruurd, is er nog wijn?
+1e Poule A	2e Poule B	1e Poule B	2e Poule A
+Winnaar Veld 1	Winnaar Veld 2
