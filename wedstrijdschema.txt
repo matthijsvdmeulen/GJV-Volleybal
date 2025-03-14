@@ -1,8 +1,0 @@
--Net Niet-	Barnebarn	Wijkkerkenraad	t
-Koelkastbouillon	Vrijdagavond team	Ruurd, is er nog wijn?	t
--Net Niet-	Koelkastbouillon	Team van Vliet	Wijkkerkenraad
-Vrijdagavond team	Barnebarn	t	Team van Vliet
-Barnebarn	Koelkastbouillon	Ruurd, is er nog wijn?	Wijkkerkenraad
--Net Niet-	Vrijdagavond team	Team van Vliet	Ruurd, is er nog wijn?
-1e Poule A	2e Poule B	1e Poule B	2e Poule A
-Winnaar Veld 1	Winnaar Veld 2

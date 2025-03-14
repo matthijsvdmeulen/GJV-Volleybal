@@ -3,6 +3,7 @@
     class simple_json_db{
         public $path = '';
         public $db = array();
+        public $default = '{"ronde":"1","counter":"Jan 1, 2000 00:00:00","wedstrijdschema":[["-","-","-","-"]]}';
 
         public function __construct($path = "db.json"){
             //Set the path
@@ -12,7 +13,7 @@
             if(!file_exists($path)){
                 if(strpos($path, '.json') === false){ $path .= '.json'; }
                 $fp = fopen($path,"wb");
-                fwrite($fp, "{}"); // -> Empty json object
+                fwrite($fp, $this->$default); // -> Empty json object
                 fclose($fp);
             }
 
@@ -22,7 +23,7 @@
 
         //Save the db
         public function save(){
-            $json = ($this->db == "{}") ? $this->db : json_encode($this->db);
+            $json = ($this->db == $this->$default) ? $this->db : json_encode($this->db);
 
             file_put_contents($this->path, $json);
         }
