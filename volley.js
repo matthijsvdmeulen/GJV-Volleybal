@@ -45,17 +45,22 @@ function counter() {
 function displayTeams() {
     var db = JSON.parse(sessionStorage.getItem("db"));
     var ronde = db.ronde;
+    var schema = db.wedstrijdschema;
     var rondeLabel = document.getElementById("rondelabel");
     if(ronde == db.wedstrijdschema.length-1) {
-        rondeLabel.innerHTML = "Halve Finale"
+        rondeLabel.innerHTML = "Halve Finale";
     } else if(ronde == db.wedstrijdschema.length) {
-        rondeLabel.innerHTML = "Finale"
+        rondeLabel.innerHTML = "Finale";
+    } else if(ronde <= 0) {
+        rondeLabel.innerHTML = "Ronde: -";
+        schema = [["-","-","-","-"]];
+        ronde = 1;
     } else {
-        rondeLabel.innerHTML = `Ronde: <span id="ronde">${ronde}</span>`
+        rondeLabel.innerHTML = `Ronde: <span id="ronde">${ronde}</span>`;
         // document.getElementById("ronde").innerHTML = ronde;
     }
 
-    var schema = db.wedstrijdschema;
+
     document.getElementById("veld1_1").innerHTML = schema[ronde - 1][0];
     document.getElementById("veld1_2").innerHTML = schema[ronde - 1][1];
     document.getElementById("veld2_1").innerHTML = schema[ronde - 1][2];

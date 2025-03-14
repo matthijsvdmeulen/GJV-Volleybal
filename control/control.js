@@ -74,6 +74,7 @@ function changeView() {
     var db = JSON.parse(sessionStorage.getItem("db"));
     var ronde = document.getElementById("ronde");
     ronde.innerHTML = "";
+    ronde.insertAdjacentHTML("beforeend", `<option value="-1">-1</option>`)
     db.wedstrijdschema.forEach((row, index) => {
         ronde.insertAdjacentHTML("beforeend", `<option value="${index+1}">${index+1}</option>`)
     });
@@ -92,6 +93,7 @@ document.querySelector("#timerStart").addEventListener("click", e => {
         },
         body: new URLSearchParams({
             'submit': 'Start',
+            'counter': new Date().getTime() + (10 * 60 * 1000)
         })
         .toString()
     })
@@ -127,6 +129,7 @@ document.querySelector("#rondeMin").addEventListener("click", e => {
 document.querySelector("#rondePlus").addEventListener("click", e => {
     e.preventDefault();
     var db = JSON.parse(sessionStorage.getItem("db"));
+    if(db.ronde < 0) {db.ronde = 0}
     if(db.ronde != db.wedstrijdschema.length) {
         fetch('./api.php', {
             method: 'POST',
@@ -144,6 +147,27 @@ document.querySelector("#rondePlus").addEventListener("click", e => {
         })
         .then(() => changeView());
     }
+})
+
+document.querySelector("#ronde").addEventListener("change", e => {
+    e.preventDefault();
+    var db = JSON.parse(sessionStorage.getItem("db"));
+    var value = document.querySelector("#ronde").value;
+    fetch('./api.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: new URLSearchParams({
+            'ronde': value,
+        })
+        .toString()
+    })
+    .then(response => response.text())
+    .then(text => {
+        sessionStorage.setItem("db", text);
+    })
+    .then(() => changeView());
 })
 
 // import {fetchData} from "../volley.js";

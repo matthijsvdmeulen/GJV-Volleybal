@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="nl-nl">
+
 <head>
     <title>Instellingen</title>
 
     <!-- <link rel="stylesheet" type="text/css" href="control.css?v=1" /> -->
     <meta charset="UTF-8" />
 </head>
+
 <body>
-<h1>Instellingen</h1>
-<p id="counter"></p>
-<p><input id="input" type="file"></p>
-<div id="showTable"></div>
-<p>Ronde:</p>
-<p></p>
-<input id="rondeMin" type="button" value="-" />
-<select id="ronde"></select>
-<input id="rondePlus" type="button" value="+" />
-<p>Timer: <span id="timer"></span></p>
-<p><input id="timerStart" type="button" value="Start" /></p>
-<script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
-<script type="text/javascript" src="control.js?t=1"></script>
+    <h1>Instellingen</h1>
+    <p id="counter"></p>
+    <p><input id="input" type="file"></p>
+    <div id="showTable"></div>
+    <p>Ronde:</p>
+    <p></p>
+    <input id="rondeMin" type="button" value="-" />
+    <select id="ronde"></select>
+    <input id="rondePlus" type="button" value="+" />
+    <p>Timer: <span id="timer"></span></p>
+    <p><input id="timerStart" type="button" value="Start" /></p>
+    <!-- <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script> -->
+    <script src="read-excel-file.min.js"></script> <!-- downloaded v5.8.7 to make it faster -->
+    <script type="text/javascript" src="control.js?t=1"></script>
 </body>
+
 </html>
