@@ -3,7 +3,7 @@
     class simple_json_db{
         public $path = '';
         public $db = array();
-        public $default = '{"ronde":"1","counter":"Jan 1, 2000 00:00:00","wedstrijdschema":[["-","-","-","-"]]}';
+        public $default = '{"ronde":"-1","counter":"0","wedstrijdschema":[["-","-","-","-"]]}';
 
         public function __construct($path = "db.json"){
             //Set the path
