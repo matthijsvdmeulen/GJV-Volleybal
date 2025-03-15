@@ -1,5 +1,5 @@
 fetchData();
-counter();
+setTimeout(counter, 1000);
 
 function fetchData() {
     var now = new Date().getTime();
@@ -16,12 +16,11 @@ var audio = new Audio("alarm.mp3");
 
 function counter() {
     var db = sessionStorage.getItem("db");
-    var data = JSON.parse(db).counter;
-    var countDownDate = new Date(data).getTime();
+    var countdown = JSON.parse(db).counter;
 
     var now = new Date().getTime();
 
-    var distance = countDownDate - now;
+    var distance = countdown - now;
 
     // var hours = Math.floor(((distance % (1000 * 60 * 60 * 24)) / (60 * 60)));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / 60 / 1000);

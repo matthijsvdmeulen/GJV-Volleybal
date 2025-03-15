@@ -79,13 +79,13 @@ function changeView() {
         ronde.insertAdjacentHTML("beforeend", `<option value="${index+1}">${index+1}</option>`)
     });
     ronde.value = db.ronde;
-
-    document.getElementById("timer").innerText = db.counter;
-
-    // setTimeout(changeView, 300);
+    console.log(db.counter);
+    document.getElementById("timer").innerText = new Date(parseInt(db.counter));
 }
 document.querySelector("#timerStart").addEventListener("click", e => {
     e.preventDefault();
+    var time = document.querySelector("#time").value.split(":");
+
     fetch('./api.php', {
         method: 'POST',
         headers: {
@@ -93,7 +93,7 @@ document.querySelector("#timerStart").addEventListener("click", e => {
         },
         body: new URLSearchParams({
             'submit': 'Start',
-            'counter': new Date().getTime() + (10 * 60 * 1000)
+            'counter': new Date().getTime() + ((parseInt(time[0]) * 60 + parseInt(time[1])) * 1000)
         })
         .toString()
     })
